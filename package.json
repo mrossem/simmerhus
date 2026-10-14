@@ -1,0 +1,26 @@
+{
+  "name": "simmerhus",
+  "version": "1.0.0",
+  "description": "Simmerhûs website (statische HTML)",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "preview": "ARTIFACT=1 eleventy --output=_preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrossem/simmerhus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrossem/simmerhus/issues"
+  },
+  "homepage": "https://github.com/mrossem/simmerhus#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@fontsource/inter": "^5.3.0"
+  },
+  "type": "module",
+  "private": true
+}

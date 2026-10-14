@@ -1,0 +1,25 @@
+---
+layout: base.njk
+pageKey: contact
+---
+{%- import "icons.njk" as icon -%}
+<section class="contact">
+  <div class="contact__text">
+    <h1>{{ heading }}</h1>
+    {{ intro | safe }}
+    <ul class="contact__links">
+      <li><a href="{{ site.calendar[lang] }}">{{ icon.calendar() }}<span>{{ calendarLabel }}</span></a></li>
+      <li><a href="mailto:{{ site.email }}">{{ icon.mail() }}<span>{{ mailLabel }} {{ site.email }}</span></a></li>
+    </ul>
+    {{ details | safe }}
+  </div>
+  <img src="{{ '/img/contact-tuin.webp' | rel }}" alt="{{ imgAlt }}" width="887" height="1179" fetchpriority="high">
+</section>
+
+<form class="contact-form" action="{{ site.formEndpoint or ('mailto:' + site.email) }}" method="post"{% if not site.formEndpoint %} enctype="text/plain"{% endif %}>
+  <label><span class="visually-hidden">{{ form.name }}</span><input name="naam" type="text" placeholder="{{ form.name }}" autocomplete="name" required></label>
+  <label><span class="visually-hidden">{{ form.email }}</span><input name="email" type="email" placeholder="{{ form.email }}" autocomplete="email" required></label>
+  <label><span class="visually-hidden">{{ form.message }}</span><textarea name="bericht" rows="7" placeholder="{{ form.message }}" required></textarea></label>
+  <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <button type="submit">{{ form.submit }}</button>
+</form>
