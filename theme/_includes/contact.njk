@@ -8,12 +8,14 @@ pageKey: contact
     <h1>{{ heading }}</h1>
     {{ intro | safe }}
     <ul class="contact__links">
+      {%- if site.calendar[lang] %}
       <li><a href="{{ site.calendar[lang] }}">{{ icon.calendar() }}<span>{{ calendarLabel }}</span></a></li>
+      {%- endif %}
       <li><a href="mailto:{{ site.email }}">{{ icon.mail() }}<span>{{ mailLabel }} {{ site.email }}</span></a></li>
     </ul>
     {{ details | safe }}
   </div>
-  <img src="{{ '/img/contact-tuin.webp' | rel }}" alt="{{ imgAlt }}" width="887" height="1179" fetchpriority="high">
+  <img src="{{ ('/img/' + img.src) | rel }}" alt="{{ imgAlt }}" width="{{ img.w }}" height="{{ img.h }}" fetchpriority="high">
 </section>
 
 <form class="contact-form" action="{{ site.formEndpoint or ('mailto:' + site.email) }}" method="post"{% if not site.formEndpoint %} enctype="text/plain"{% endif %}>
