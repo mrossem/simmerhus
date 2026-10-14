@@ -5,7 +5,8 @@ services:
     branch: main
     buildCommand: npm ci && npm run build
     staticPublishPath: ./_site
-    pullRequestPreviewsEnabled: true
+    previews:
+      generation: automatic
     domains:
       - www.simmerhus.nl
       - simmerhus.nl
