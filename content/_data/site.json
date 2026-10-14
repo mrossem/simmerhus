@@ -1,0 +1,48 @@
+{
+  "name": "Simmerhûs",
+  "wordmark": "Simmerhûs",
+  "icon": "palm",
+  "url": "https://www.simmerhus.nl",
+  "email": "info@simmerhus.nl",
+  "address": "Nieuw Schoolpad 3, 8896 JC, Hoorn, Terschelling",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Simmerh%C3%BBs%2C%20Nieuw%20Schoolpad%203%2C%20Hoorn%20Terschelling",
+  "schema": {
+    "streetAddress": "Nieuw Schoolpad 3",
+    "postalCode": "8896 JC",
+    "addressLocality": "Hoorn (Terschelling)",
+    "maxGuests": 5
+  },
+  "instagram": "https://www.instagram.com/simmerhusterschelling",
+  "instagramHandle": "@simmerhusterschelling",
+  "facebook": "https://www.facebook.com/simmerhus/",
+  "sister": {
+    "url": "https://www.silhus.nl/",
+    "label": {
+      "nl": "Bekijk ook ons Silhûs in Woudsend",
+      "en": "Also visit our Silhûs in Woudsend"
+    }
+  },
+  "calendar": {
+    "nl": "https://www.huurkalender.nl/vacancy/simmerhus-18990.html?type=iframe&lang=nl",
+    "en": "https://www.huurkalender.nl/vacancy/simmerhus-18990.html?type=iframe&lang=en"
+  },
+  "bookingYears": {
+    "nl": "2027",
+    "en": "2027"
+  },
+  "formEndpoint": "",
+  "copyright": {
+    "nl": "© 2024 Simmerhûs. Fotografie door Ossip van Duivenbode, alle rechten voorbehouden",
+    "en": "© 2024 Simmerhûs. Photography by Ossip van Duivenbode, all rights reserved"
+  },
+  "ogImage": "hero-slaapkamer.webp",
+  "reserve": {
+    "img": "reserveren-luchtfoto.webp",
+    "w": 641,
+    "h": 323,
+    "alt": {
+      "nl": "Luchtfoto van Hoorn met de polder en de Waddenzee",
+      "en": "Aerial view of Hoorn with the polder and the Wadden Sea"
+    }
+  }
+}

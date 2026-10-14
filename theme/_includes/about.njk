@@ -1,0 +1,24 @@
+---
+layout: base.njk
+pageKey: about
+---
+<section class="about-hero">
+  <h1>{{ heading | safe }}</h1>
+  <img src="{{ '/img/over-hero.webp' | rel }}" alt="{{ heroAlt }}" width="640" height="315" fetchpriority="high">
+</section>
+
+<div class="about-sections">
+  {%- for s in sections %}
+  <section class="about-section{% if loop.index0 % 2 == 0 %} about-section--img-left{% endif %}{% if not s.img %} about-section--no-img{% endif %}">
+    <div class="about-section__text">
+      <h2>{{ s.title }}</h2>
+      {{ s.text | safe }}
+    </div>
+    {%- if s.img %}
+    <img src="{{ ('/img/' + s.img) | rel }}" alt="{{ s.alt }}" loading="lazy" width="322" height="267">
+    {%- endif %}
+  </section>
+  {%- endfor %}
+</div>
+
+{% include "reserve.njk" %}

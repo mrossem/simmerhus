@@ -1,0 +1,9 @@
+{%- import "icons.njk" as icon -%}
+<section class="reserve">
+  <img src="{{ ('/img/' + site.reserve.img) | rel }}" alt="{{ site.reserve.alt[lang] }}" loading="lazy" width="{{ site.reserve.w }}" height="{{ site.reserve.h }}">
+  <div class="reserve__panel">
+    <p class="reserve__kicker">{{ i18n.reserve_kicker[lang] }}</p>
+    <h2 class="reserve__title">{{ i18n.reserve_title[lang] | fill({bookingYears: site.bookingYears[lang]}) }}</h2>
+    <a class="btn-outline" href="{{ (('/en/' if lang == 'en' else '/') + 'contact/') | rel }}">{{ i18n.reserve_button[lang] }} {{ icon.arrow() }}</a>
+  </div>
+</section>
