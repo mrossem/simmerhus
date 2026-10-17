@@ -35,11 +35,11 @@
     "nl": "© 2024 Simmerhûs. Fotografie door Ossip van Duivenbode, alle rechten voorbehouden",
     "en": "© 2024 Simmerhûs. Photography by Ossip van Duivenbode, all rights reserved"
   },
-  "ogImage": "hero-slaapkamer.webp",
+  "ogImage": "og.jpg",
   "reserve": {
     "img": "reserveren-luchtfoto.webp",
-    "w": 641,
-    "h": 323,
+    "w": 1400,
+    "h": 1048,
     "alt": {
       "nl": "Luchtfoto van Hoorn met de polder en de Waddenzee",
       "en": "Aerial view of Hoorn with the polder and the Wadden Sea"
