@@ -184,8 +184,12 @@ details[open] .accordion__plus::after { rotate: 0deg; }
 .contact-cta__btn svg { width: 22px; height: 22px; }
 
 @media (max-width: 900px) {
-  .topbar { position: static; flex-direction: column; align-items: flex-start; padding: 10px var(--gutter); }
-  .topbar__right { gap: 12px; flex-wrap: wrap; text-align: left; }
+  .topbar { align-items: center; min-height: 0; padding: 10px var(--gutter); font-size: 14px; }
+  .topbar__nav { gap: 10px; flex-wrap: nowrap; }
+  .topbar__nav ul { gap: 4px 8px; }
+  .topbar__nav li::before { margin-right: 4px; }
+  .topbar__social, .topbar__sister { display: none; }
+  .topbar__right { flex-shrink: 0; }
   .features__grid, .press__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
   .partner { grid-template-columns: 1fr; gap: 28px; }
   .partner__side { min-height: 0; }

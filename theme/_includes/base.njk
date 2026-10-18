@@ -52,6 +52,7 @@
   <nav class="footer__nav" aria-label="Footer">
     <a href="{{ (home + 'about/') | rel }}">{{ i18n.nav_about[lang] | fill(site) }}</a>
     <a href="{{ (home + 'contact/') | rel }}">{{ i18n.book_button[lang] }}</a>
+    <a href="{{ site.sister.url }}">{{ site.sister.label[lang] }}</a>
   </nav>
   <p><a class="footer__address" href="{{ site.mapsUrl }}">{{ site.address }}</a></p>
   <p class="footer__social">
