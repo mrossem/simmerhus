@@ -111,7 +111,7 @@ details[open] .accordion__plus::after { rotate: 0deg; }
 .press-card .btn { margin-top: 20px; }
 
 .reserve { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 60px var(--gutter); }
-.reserve img { width: 100%; height: auto; align-self: start; }
+.reserve img { width: 100%; height: 100%; align-self: stretch; object-fit: cover; }
 .reserve__panel { display: flex; flex-direction: column; min-height: 672px; padding: 24px; background: var(--panel); }
 .reserve__kicker { font-size: 15px; }
 .reserve__title { margin: auto 0; font-size: clamp(22px, 2.4vw, 32px); font-weight: 400; text-transform: uppercase; line-height: 1.1; }
@@ -197,6 +197,7 @@ details[open] .accordion__plus::after { rotate: 0deg; }
   .partners__controls { position: static; margin-top: 24px; }
   .reserve, .row, .about-hero, .about-section, .contact { grid-template-columns: 1fr; gap: 28px; }
   .reserve__panel { min-height: 360px; }
+  .reserve img { height: auto; aspect-ratio: 4 / 3; }
   .row { padding: 30px 0 50px; }
   .row--flip > :first-child { order: 0; }
   .about-section--img-left img { order: 0; }
