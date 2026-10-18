@@ -1,0 +1,66 @@
+{%- import "icons.njk" as icon -%}
+{%- set nlUrl = altUrl if lang == "en" else page.url -%}
+{%- set enUrl = page.url if lang == "en" else altUrl -%}
+{%- set home = "/en/" if lang == "en" else "/" -%}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="nl" href="{{ site.url }}{{ nlUrl }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ enUrl }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ nlUrl }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ site.url }}/img/{{ ogImage or site.ogImage }}">
+<meta property="og:locale" content="{{ 'en_GB' if lang == 'en' else 'nl_NL' }}">
+<link rel="preload" href="{{ '/fonts/inter-latin-400-normal.woff2' | rel }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/css/style.css' | rel }}">
+<link rel="icon" href="{{ '/img/favicon.svg' | rel }}" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VacationRental","name":"{{ site.name }}","url":"{{ site.url }}/","image":"{{ site.url }}/img/{{ site.ogImage }}","email":"{{ site.email }}","address":{"@type":"PostalAddress","streetAddress":"{{ site.schema.streetAddress }}","postalCode":"{{ site.schema.postalCode }}","addressLocality":"{{ site.schema.addressLocality }}","addressCountry":"NL"},"containsPlace":{"@type":"Accommodation","occupancy":{"@type":"QuantitativeValue","maxValue":{{ site.schema.maxGuests }}}},"sameAs":["{{ site.instagram }}"{% if site.facebook %},"{{ site.facebook }}"{% endif %}]}
+</script>
+</head>
+<body class="page-{{ pageKey }}">
+<a class="skip" href="#main">{{ i18n.skip[lang] }}</a>
+<header class="topbar">
+  <nav class="topbar__nav" aria-label="Menu">
+    <a class="topbar__logo" href="{{ home | rel }}" aria-label="{{ site.name }}">{{ icon.logo(site.icon) }}</a>
+    <ul>
+      <li><a href="{{ home | rel }}"{% if pageKey == "home" %} aria-current="page"{% endif %}>{{ i18n.nav_home[lang] }}</a></li>
+      <li><a href="{{ (home + 'about/') | rel }}"{% if pageKey == "about" %} aria-current="page"{% endif %}>{{ i18n.nav_about[lang] | fill(site) }}</a></li>
+      <li><a href="{{ (home + 'contact/') | rel }}"{% if pageKey == "contact" %} aria-current="page"{% endif %}>{{ i18n.nav_contact[lang] }}</a></li>
+    </ul>
+    <a class="topbar__social" href="{{ site.instagram }}" aria-label="Instagram">{{ icon.instagram() }}</a>
+    {% if site.facebook %}<a class="topbar__social" href="{{ site.facebook }}" aria-label="Facebook">{{ icon.facebook() }}</a>{% endif %}
+  </nav>
+  <div class="topbar__right">
+    <a class="topbar__lang" href="{{ (enUrl if lang == 'nl' else nlUrl) | rel }}" hreflang="{{ 'en' if lang == 'nl' else 'nl' }}" lang="{{ 'en' if lang == 'nl' else 'nl' }}">{{ i18n.lang_switch_label[lang] }}</a>
+    <a class="topbar__sister" href="{{ site.sister.url }}">&gt; {{ site.sister.label[lang] }}</a>
+  </div>
+</header>
+<main id="main">
+{{ content | safe }}
+</main>
+<footer class="footer">
+  <span class="footer__icon">{{ icon.logo(site.icon) }}</span>
+  <p class="footer__wordmark" aria-hidden="true">{{ site.wordmark }}</p>
+  <nav class="footer__nav" aria-label="Footer">
+    <a href="{{ (home + 'about/') | rel }}">{{ i18n.nav_about[lang] | fill(site) }}</a>
+    <a href="{{ (home + 'contact/') | rel }}">{{ i18n.book_button[lang] }}</a>
+    <a href="{{ site.sister.url }}">{{ site.sister.label[lang] }}</a>
+  </nav>
+  <p><a class="footer__address" href="{{ site.mapsUrl }}">{{ site.address }}</a></p>
+  <p class="footer__social">
+    <a href="{{ site.instagram }}" aria-label="Instagram">{{ icon.instagram() }}</a>
+    {% if site.facebook %}<a href="{{ site.facebook }}" aria-label="Facebook">{{ icon.facebook() }}</a>{% endif %}
+  </p>
+  <p class="footer__copy">{{ site.copyright[lang] }}</p>
+</footer>
+<script src="{{ '/js/site.js' | rel }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+---
+layout: base.njk
+pageKey: home
+---
+{%- import "icons.njk" as icon -%}
+<h1 class="wordmark">{{ site.wordmark }}</h1>
+
+<section class="carousel" aria-roledescription="carousel" aria-label="{{ 'Photos' if lang == 'en' else 'Foto’s' }}">
+  <div class="carousel__track" tabindex="0">
+    {%- for img in gallery %}
+    <figure class="carousel__slide"><img src="{{ ('/img/' + img.src) | rel }}" alt="{{ img.alt }}" {% if not loop.first %}loading="lazy"{% else %}fetchpriority="high"{% endif %} width="{{ img.w }}" height="{{ img.h }}"></figure>
+    {%- endfor %}
+  </div>
+  <button class="carousel__btn carousel__btn--prev" type="button" aria-label="{{ i18n.prev[lang] }}">‹</button>
+  <button class="carousel__btn carousel__btn--next" type="button" aria-label="{{ i18n.next[lang] }}">›</button>
+</section>
+
+<section class="intro">
+  {%- for line in intro %}<p>{{ line }}</p>{% endfor %}
+  <a class="btn" href="{{ (('/en/' if lang == 'en' else '/') + 'contact/') | rel }}">{{ i18n.book_button[lang] }}</a>
+</section>
+
+{% if highlights %}
+<section class="accordion">
+  {%- for item in highlights %}
+  <details>
+    <summary><span class="accordion__num">0{{ loop.index }}</span><span class="accordion__title">{{ item.title }}</span><span class="accordion__plus" aria-hidden="true"></span></summary>
+    <div class="accordion__body">{{ item.text | safe }}</div>
+  </details>
+  {%- endfor %}
+</section>
+{% endif %}
+
+{% if features %}
+<section class="features">
+  <div class="features__grid">
+    {%- for f in features %}
+    <article class="feature">
+      <img src="{{ ('/img/' + f.img) | rel }}" alt="{{ f.alt }}" loading="lazy" width="280" height="280">
+      <h2>{{ f.title }}</h2>
+      <p>{{ f.text }}</p>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if partners %}
+<section class="partners" aria-roledescription="carousel" aria-labelledby="partners-label">
+  <p class="partners__label" id="partners-label">{{ partnersLabel }}</p>
+  <div class="partners__track">
+    {%- for p in partners %}
+    <article class="partner">
+      <blockquote class="partner__quote">{{ p.quote }}</blockquote>
+      <div class="partner__side">
+        {% if p.img %}<img src="{{ ('/img/' + p.img) | rel }}" alt="{{ p.alt }}" loading="lazy" width="312" height="308">{% endif %}
+        <p class="partner__name">{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</p>
+        <p class="partner__role">{{ p.role }}</p>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+  <div class="partners__controls">
+    <button type="button" class="partners__btn partners__btn--prev" aria-label="{{ i18n.prev[lang] }}">{{ icon.arrow("left") }}</button>
+    <button type="button" class="partners__btn partners__btn--next" aria-label="{{ i18n.next[lang] }}">{{ icon.arrow() }}</button>
+  </div>
+</section>
+{% endif %}
+
+{% if press %}
+<section class="press">
+  <h2>{{ pressTitle }}</h2>
+  <div class="press__grid">
+    {%- for p in press %}
+    <article class="press-card">
+      <img src="{{ ('/img/' + p.img) | rel }}" alt="" loading="lazy" width="305" height="228">
+      <div class="press-card__body">
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.text }}</p>
+        {% if p.url %}<a class="btn" href="{{ p.url }}">{{ i18n.read_more[lang] }}<span class="visually-hidden">: {{ p.name }}</span></a>{% endif %}
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% include "reserve.njk" %}
+
+{% if rows %}
+<section class="rows">
+  {%- for r in rows %}
+  <div class="row{% if loop.index0 % 2 == 1 %} row--flip{% endif %}">
+    {%- if r.review %}
+    <figure class="review">
+      <figcaption><span class="review__avatar" aria-hidden="true">{{ r.review.author | first }}</span><strong>{{ r.review.author }}</strong></figcaption>
+      <p class="review__stars" aria-label="{{ r.review.starsLabel }}">★★★★★</p>
+      <blockquote lang="{{ r.review.lang or lang }}">{% for l in r.review.text %}<p>{{ l }}</p>{% endfor %}</blockquote>
+    </figure>
+    {%- else %}
+    <a class="row__img" href="{{ r.url }}"><img src="{{ ('/img/' + r.img) | rel }}" alt="{{ r.alt }}" loading="lazy" width="{{ r.w or 452 }}" height="{{ r.h or 274 }}"></a>
+    {%- endif %}
+    <div class="row__text">
+      <h2>{{ r.title }}</h2>
+      <p>{{ r.text | safe }}{% if r.linkLabel %} <a href="{{ r.url }}">{{ r.linkLabel }}</a>{% endif %}</p>
+    </div>
+  </div>
+  {%- endfor %}
+</section>
+{% endif %}

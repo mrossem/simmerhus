@@ -1,0 +1,22 @@
+{%- macro palm(cls="") -%}
+<svg class="{{ cls }}" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 37c8-5 32-5 40 0"/><path d="M29 33c0-8-1-15-4-22"/><path d="M25 11c-4-4-10-4-13 0 4-1 8 0 11 2"/><path d="M25 11c1-5 6-8 11-6-4 1-7 3-9 6"/><path d="M25 11c5-2 11 0 13 5-4-2-8-3-12-3"/><path d="M25 11c-2 4-2 9 0 12"/><circle cx="9" cy="28" r="3"/></svg>
+{%- endmacro -%}
+{%- macro instagram() -%}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+{%- endmacro -%}
+{%- macro facebook() -%}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.8c0-.9.3-1.5 1.5-1.5h1.5V4.7c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8.1v3h2.5V21"/></svg>
+{%- endmacro -%}
+{%- macro calendar() -%}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><circle cx="8" cy="14" r=".6" fill="currentColor"/><circle cx="12" cy="14" r=".6" fill="currentColor"/><circle cx="16" cy="14" r=".6" fill="currentColor"/><circle cx="8" cy="18" r=".6" fill="currentColor"/><circle cx="12" cy="18" r=".6" fill="currentColor"/><circle cx="16" cy="18" r=".6" fill="currentColor"/></svg>
+{%- endmacro -%}
+{%- macro mail() -%}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1"/><path d="M2.5 5l9.5 8 9.5-8M2.5 19l7-7M21.5 19l-7-7"/></svg>
+{%- endmacro -%}
+{%- macro arrow(dir="right") -%}
+<svg viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">{% if dir == "left" %}<path d="M27 6H1M6 1L1 6l5 5"/>{% else %}<path d="M1 6h26M22 1l5 5-5 5"/>{% endif %}</svg>
+{%- endmacro -%}
+{%- macro boat(cls="") -%}
+<svg class="{{ cls }}" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 3v26"/><path d="M24 6L11 26h13"/><path d="M24 9l11 17H24"/><path d="M5 29h38l-5 7H10z"/><path d="M8 38h32"/></svg>
+{%- endmacro -%}
+{%- macro logo(name) -%}{% if name == "boat" %}{{ boat() }}{% else %}{{ palm() }}{% endif %}{%- endmacro -%}

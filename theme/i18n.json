@@ -1,0 +1,54 @@
+{
+  "nav_home": {
+    "nl": "Home",
+    "en": "Home"
+  },
+  "nav_about": {
+    "nl": "Over {name}",
+    "en": "About {name}"
+  },
+  "nav_contact": {
+    "nl": "Reserveren / Contact",
+    "en": "Book / Contact"
+  },
+  "book_button": {
+    "nl": "Beschikbaarheid en Reserveren",
+    "en": "Availability and booking"
+  },
+  "reserve_kicker": {
+    "nl": "Ons fijne plekje is te huur.",
+    "en": "Our lovely place is available to rent."
+  },
+  "reserve_title": {
+    "nl": "Je kunt nu reserveren voor {bookingYears}!",
+    "en": "Bookings for {bookingYears} are now open!"
+  },
+  "reserve_button": {
+    "nl": "Reserveer",
+    "en": "Book now"
+  },
+  "read_more": {
+    "nl": "Lees meer",
+    "en": "Read more"
+  },
+  "lang_switch_label": {
+    "nl": "English",
+    "en": "Nederlands"
+  },
+  "skip": {
+    "nl": "Naar de inhoud",
+    "en": "Skip to content"
+  },
+  "prev": {
+    "nl": "Vorige",
+    "en": "Previous"
+  },
+  "next": {
+    "nl": "Volgende",
+    "en": "Next"
+  },
+  "mail_cta": {
+    "nl": "Mail ons",
+    "en": "Email us"
+  }
+}
