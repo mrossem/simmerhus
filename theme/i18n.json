@@ -46,5 +46,9 @@
   "next": {
     "nl": "Volgende",
     "en": "Next"
+  },
+  "mail_cta": {
+    "nl": "Mail ons",
+    "en": "Email us"
   }
 }
