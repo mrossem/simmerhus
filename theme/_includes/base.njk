@@ -24,6 +24,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"VacationRental","name":"{{ site.name }}","url":"{{ site.url }}/","image":"{{ site.url }}/img/{{ site.ogImage }}","email":"{{ site.email }}","address":{"@type":"PostalAddress","streetAddress":"{{ site.schema.streetAddress }}","postalCode":"{{ site.schema.postalCode }}","addressLocality":"{{ site.schema.addressLocality }}","addressCountry":"NL"},"containsPlace":{"@type":"Accommodation","occupancy":{"@type":"QuantitativeValue","maxValue":{{ site.schema.maxGuests }}}},"sameAs":["{{ site.instagram }}"{% if site.facebook %},"{{ site.facebook }}"{% endif %}]}
 </script>
+{%- if site.cfAnalyticsToken %}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cfAnalyticsToken }}"}'></script>
+{%- endif %}
 </head>
 <body class="page-{{ pageKey }}">
 <a class="skip" href="#main">{{ i18n.skip[lang] }}</a>
